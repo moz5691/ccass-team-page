@@ -6,37 +6,39 @@ tags:
   - Machine Learning
 ---
 
-## Title goes here..
+## Price Point Analysis
 
-This is a paragraph. [......brief summary of the analysis.]
+> #### **120,916 wines** in analysis
 
-> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+> #### **7,241 outliers** in the price of the wine
 
-If you want to add code, indent 4 space for some code in it. 
+![Wine_Points_Box](./Wine_Points_Box.png)
 
-    import numpy as np 
-    import pandas as pd 
+> #### Most Wines between **$17 and $42** a bottle
 
-    df = pd.read_csv(path)
-    df.head()
+![Wine_Price_Box](./Wine_Price_Box.png)
+
+> #### There is a small .42 correlation between price and point value of the wines
 
 
-Picture can be added from external.  
+![Wine_without_price](./Wine_without_price.png)
 
-![Alt Text](https://dummyimage.com/600x400/000/ff00ea.png "Image Title")
+> #### Analyzed based off pricing
+* less than **$50**
+* less than **$500**
+* more than **$500**
 
-Picture can be added from local image file.
 
-![Sample graph](./sample.png)
-![Sample graph](./fig_01.png)
+> #### There is a stronger correlation between price and point value for cheaper wines
 
-* Red is RED
-* Green is GREEN
-* Blue is BLUE
+![Wine_$50_or_less](./Wine_$50_or_less.png)
 
-1. Buy flour and salt
-2. Mix together with water
-3. Bake
+> #### Expensive (>$500 bottle) have a negative correlation
 
-### Conclusion
-The is **no correlation** between A and B.
+![Wine_more_than_$500](./Wine_more_than_$500.png)
+
+> #### Findings: You will find plenty of high quality wines on a budget, no need to go expensive.
+
+![Wine_$500_or_less](./Wine_$500_or_less.png)
+
+
