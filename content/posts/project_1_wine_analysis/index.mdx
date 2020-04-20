@@ -6,39 +6,121 @@ tags:
   - Machine Learning
 ---
 
-## Price Point Analysis
+### 1. Price Point Analysis
 
-> #### **120,916 wines** in analysis
+Jupyter Notebook Link for **Price Point Analyis** is [Price Point Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/Wine%20-%20By%20the%20Numbers%20-%20Price_Point.ipynb "Jupyter notebook").
 
-> #### **7,241 outliers** in the price of the wine
+> ##### **120,916 wines** in analysis
 
-![Wine_Points_Box](./Wine_Points_Box.png)
+> ##### **7,241 outliers** in the price of the wine
 
-> #### Most Wines between **$17 and $42** a bottle
+![Wine_Points_Box](./img/sh/Wine_Points_Box.png)
 
-![Wine_Price_Box](./Wine_Price_Box.png)
+> ##### Most Wines between **$17 and $42** a bottle
 
-> #### There is a small .42 correlation between price and point value of the wines
+![Wine_Price_Box](./img/sh/Wine_Price_Box.png)
+
+> ##### There is a small .42 correlation between price and point value of the wines
 
 
-![Wine_without_price](./Wine_without_price.png)
+![Wine_without_price](./img/sh/Wine_without_price.png)
 
-> #### Analyzed based off pricing
+> ##### Analyzed based off pricing
 * less than **$50**
 * less than **$500**
 * more than **$500**
 
 
-> #### There is a stronger correlation between price and point value for cheaper wines
+> ##### There is a stronger correlation between price and point value for cheaper wines
 
-![Wine_$50_or_less](./Wine_$50_or_less.png)
+![Wine_$50_or_less](./img/sh/Wine_$50_or_less.png)
 
-> #### Expensive (>$500 bottle) have a negative correlation
+> ##### Expensive (>$500 bottle) have a negative correlation
 
-![Wine_more_than_$500](./Wine_more_than_$500.png)
+![Wine_more_than_$500](./img/sh/Wine_more_than_$500.png)
 
-> #### Findings: You will find plenty of high quality wines on a budget, no need to go expensive.
+> ##### Findings: You will find plenty of high quality wines on a budget, no need to go expensive.
 
-![Wine_$500_or_less](./Wine_$500_or_less.png)
+![Wine_$500_or_less](./img/sh/Wine_$500_or_less.png)
+
+-----------
+
+### 2. Wine testers' points bias analysis 
+
+> TBD
+
+> TBD
+
+------------
+
+### 3. Wine quality with respect to area/region anlaysis 
+
+> TBD
+
+> TBD
+
+-----------
+
+### 4. Climate impact to wine quality analysis
+
+> TBD
+
+> TBD
+
+-------
+
+### 5. Wine description and points analysis.
+
+Jupyter Notebook Link for **Description and Points Analyis** is [Description & Points Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/ca-baseline/wine-ca.ipynb "Jupyter notebook").
+
+> ##### Picked unique descriptions. 17 uniques points distribution.
 
 
+![Points distribution](./img/ca/fig_01.png)
+
+
+> ##### Try to find correlation between length of description and points
+* less correlation at higher points
+
+![Point boxplot](./img/ca/fig_02.png)
+
+
+> ##### Linear regression 
+* similary it is not linear at higher points
+
+![Linear regression](./img/ca/fig_03.png)
+
+> ##### Rearrange data into 5 different bins, i.e. 17 diff points --> 5 diff points
+* Score 1 : 689
+* Score 2 : 3084
+* Score 3 : 7154
+* Score 4 : 5203
+* Score 5 : 3888
+
+![Linear regression](./img/ca/fig_04.png)
+
+> ##### It looks a lot more linear with binned dataset.
+
+![Linear regression](./img/ca/fig_05.png)
+
+> ##### Can we predict "Score" bin using descriptions?  
+
+* Lengh of description is clearly related with points. 
+* But, what if the description is just random words with no meaning?
+* The words or context within description should be another critical factor.
+
+> ##### Prediction of points using description (words in the descriptions)
+
+  1. TfidfVectorizer - Transforms text to feature vectors
+  2. Random Forest - A classification algorithm. 
+  * X: input data [bag of words, i.e. description], 
+  * y: classification [1,2,3,4,5]
+
+> ##### Short demo [LINK: TBD]
+
+> ##### Findings  
+
+* We can correlate the length of descriptions with points by testers. 
+* We found its linearity between length of descriptions and points.
+* Using TFIDF and RandomForestClassifier to predict points using 'description' as a bag of words. Accuracy of prediction is pretty satisfactory. 
+* It might be interesting to see how the same descriptions are scored as points by the testers (future work?)
