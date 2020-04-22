@@ -6,7 +6,7 @@ tags:
   - Machine Learning
 ---
 
-#### TEAM ***"CCASS"***  
+#### TEAM ***CCASS***  
 
 <br/>
 
@@ -17,10 +17,14 @@ tags:
 #### Datasets
 * https://www.kaggle.com/zynicide/wine-reviews
 * Google Places
-* Open Weather API
+* Meteostat API
 
 #### Summary 
 * Evaluate the quality of wines based off score/points given by testers to determine if the tester, region, price, or climate impacted the wine’s score or description provided by the tester
+
+#### Questions
+* TBD
+* TBD
 
 #### Process
 * Compare the length of the description to the point value
@@ -29,7 +33,17 @@ tags:
 * Using a 10 year period compare score to temperature and precipitation
 * Using wines price, plot wine and determine correlation and best wines for budget
 
+#### Wine points scale
+* 95-100 Classic: a great wine.
+* 90-94 Outstanding: a wine of superior character and style.
+* 85-89 Very good: a wine with special qualities.
+* 80-84 Good: a solid, well-made wine.
+* 75-79 Mediocre: a drinkable wine that may have minor flaws.
+* 50-74 Not recommended.
+
 --------
+<br/>
+<br/>
 
 ### 1. Wine description and points analysis.
 ![icon](./img/ca/wine&words.jpg)
@@ -90,32 +104,74 @@ Jupyter Notebook Link for **Description and Points Analyis** is [Description & P
 * We found its linearity between length of descriptions and points after binning datasets.
 * Using TFIDF and RandomForestClassifier to predict points using 'description' as a bag of words. Accuracy of prediction (0.98) was pretty satisfactory. 
 * It might be interesting to see how the same descriptions are scored as points by the tasters (future work?)
+<br/>
 
 
------------
 
+
+<br/>
+
+----------
 ### 2. Wine tasters' points bias analysis.
 
 ![icon](./img/cb/wine_tasting.jpg)
 
-Jupyter Notebook Link for **Price Point Analyis** is [Price Point Analysis](https://examples.com "Jupyter notebook").
+Jupyter Notebook Link for **Tasters' points bias analysis** is [Price Point Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/winebased/Wine-Bias.ipynb "Jupyter notebook").
 
-> TBD
 
-> TBD
+> ##### Reviewers Per Country
 
+![fig1_cdb](./img/cb/fig1_cbd.png)
+* The US has the most wines reviewed, even more than France and Italy combined
+* Only 9 countries have more than 1000 wines reviewed
+
+<br/>
+
+> ##### Amount of Reviews per Taster
+
+![fig2_cdb](./img/cb/fig2_cdb.png)
+* There are 14 reviewer who had more than 1000 reviews
+ 
+<br/>
+
+> ##### Wine Scores from Reviewers
+
+![fig3_cbd](./img/cb/fig3_cdb.png)
+* In terms of scoring there appears to be no bias found in the scoring of wines
+* Roger Voss was the leader in the number of wines reviewed
+* A score of 80 was the lowest score given
+
+<br/>
+
+ 
+> ##### Average Score Per Wine Taster
+
+![fig4_cbd](./img/cb/fig4_cdb.png)
+* The region of the wine's origin does not have an impact on the score of it
+* With the averages of the reviews having parity between the tasters, we can conclude that the reviewers take in no bias when reviewing.
+
+
+<br/>
 ---------
 
+--------
 ### 3. Wine quality with respect to area/region anlaysis
 
 ![icon](./img/sc/wine_world_bubble.jpg)
 
-Jupyter Notebook Link for **Price Point Analyis** is [Area/Region Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/geocode_slc/Wine_Geocode.ipynb "Jupyter notebook").
+Jupyter Notebook Link for **Quality with respect to area/region analysis** is [Area/Region Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/geocode_slc/Wine_Geocode.ipynb "Jupyter notebook").
+
+##### Average wine points highlighted within regions consist of the below scale
+* **90-94** Outstanding: a wine of superior character and style. - RED
+* **85-89** Very good: a wine with special qualities. - GREEN
+* **80-84** Good: a solid, well-made wine. - BLUE
 
 
-> ##### [Wine Points Tricolor](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_tricolor.html "gmap")
+> ##### [Wine Points Global](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_tricolor.html "gmap")
 
-> ##### [Wine Points Australia and New Zealand](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_Australia_NZ.html "gmap").
+> ##### [Wine Points Europe](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_Europe.html "gmap")
+
+> ##### [Wine Points Australia and New Zealand](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_Australia_NZ.html "gmap")
 
 > ##### [Wine Points South Africa](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_SAfrical.html "gmap")
 
@@ -123,35 +179,59 @@ Jupyter Notebook Link for **Price Point Analyis** is [Area/Region Analysis](http
 
 > ##### [Wine Points United States](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_USA.html "gmap")
 
-> ##### Findings
+<br/>
 
+> #### Findings 
+
+* ***Limitations:*** Our data set did not contain points lower than 84 or higher than 94
+* Largest wine producing area is in Europe as there are a variety of wine makers
+* The areas appearing in green show an average of consistent good wine
+* Wine is not necessarily good based on the region, but based on the wine makers
+  - Do not see clusters of outstanding wine within a region (red) 
+  - Less wine in a location with high point score with no other wineries, example Arkansas wine (red).
+
+<br/>
 -----------
 
+------------
 ### 4. Climate impact to wine quality analysis
 
 ![icon](./img/ah/wine_climate.jpg)
 
-Jupyter Notebook Link for **Price Point Analyis** is [Climate Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/APH/WinoAPH_Climate.ipynb "Jupyter notebook").
+Jupyter Notebook Link for **Climate impact analysis** is [Climate Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/APH/WinoAPH_Climate.ipynb "Jupyter notebook").
 
-> ##### Average annual temperature by province (2006 ~ 2015)
+> ##### Average Annual Temperature for France, US, Italy (2006-2015)
 
 ![Temparature by Province](./img/ah/fig_APH01.png)
+* For the top 3 wine producing countries, the average temperature trend of the 3 countries over the 10 year period do NOT overlap.
+* Note that the temperature trend for Italy fluctuates the most year over year.
 
-> ##### Average annual precipitation by province (2006 ~ 2015)
+
+> ##### Average Annual Precipitation for France, US, Italy (2006-2015)
 
 ![Precipiation by Province](./img/ah/fig_APH02.png)
 
-> ##### Points vs annual temperature (2006 ~ 2015)
+* Like its temperature trend, the precipitation trend for Italy fluctuates the most year over year.
+* Note there's a converse relationship between the precipation trend of US and France over the 10 year period.
+
+> ##### Points vs. Annual Temperature (2006-2015)
 
 ![Points vs Temerature](./img/ah/fig_APH03.png)
+* There's a steep negative correlation between points vs. annual average temperature in Italy. The lower the temperature, the higher the points. Note: Tuscany, Piedmont, Veneto were 3 top wine producing regions in Italy.
+* There's a slight negative correlation between points vs. annual average temperature for both US and France. Thus per this data set, temperature has little to no affect on quality of wine produced in the regions selected in both US and France between 2006 and 2015.
 
-> ##### Points vs annual precipitation (2006 ~ 2015)
+> ##### Points vs. Annual Precipitation (2006-2015)
 
 ![Points vs Precipitation](./img/ah/fig_APH04.png)
+* There's a significant positive correlation between points vs. annual average precipitation in both Italy and US. The higher the precipitation, the higher the points.
+* There's a slight negative correlation between points vs. annual average precipitation for France. Per this data set, neither temperature nor precipitation has little to no affect on quality of wine produced in the regions of France.
 
-> ##### Findings: TBD
+> ##### Interesting to note that we only saw a strong correlation between climate effects on wine quality in Italy, and not US and France.
+
+
 
 -------
+<br/>
 
 ### 5. Price Point Analysis
 
@@ -180,15 +260,14 @@ Jupyter Notebook Link for **Price Point Analyis** is [Price Point Analysis](http
 * more than **$500**
 
 
-> ##### There is a stronger correlation between price and point value for cheaper wines
-
-![Wine_$50_or_less](./img/sh/Wine_$50_or_less.png)
-
 > ##### Expensive (>$500 bottle) have a negative correlation
 
 ![Wine_more_than_$500](./img/sh/Wine_more_than_$500.png)
 
-> ##### Findings: You will find plenty of high quality wines on a budget, no need to go expensive.
-
 ![Wine_$500_or_less](./img/sh/Wine_$500_or_less.png)
 
+> ##### There is a stronger correlation between price and point value for cheaper wines
+
+![Wine_$50_or_less](./img/sh/Wine_$50_or_less.png)
+
+> ##### Findings: You will find plenty of high quality wines on a budget, no need to go expensive.
