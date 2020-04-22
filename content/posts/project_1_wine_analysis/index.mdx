@@ -6,7 +6,154 @@ tags:
   - Machine Learning
 ---
 
-### 1. Price Point Analysis
+#### TEAM ***"CCASS"***  
+
+<br/>
+
+##### Chris Brownlee, Chen Ho Ahn, Angela Huynh, Samantha Cassidy, Skip Hobba
+
+<br/>
+
+#### Datasets
+* https://www.kaggle.com/zynicide/wine-reviews
+* Google Places
+* Open Weather API
+
+#### Summary 
+* Evaluate the quality of wines based off score/points given by testers to determine if the tester, region, price, or climate impacted the wine’s score or description provided by the tester
+
+#### Process
+* Compare the length of the description to the point value
+* Analyze each tester to determine if they have preferred type, region of wine and if that impacts points
+* Map average wine score for each province using color to indicate point value
+* Using a 10 year period compare score to temperature and precipitation
+* Using wines price, plot wine and determine correlation and best wines for budget
+
+--------
+
+### 1. Wine description and points analysis.
+![icon](./img/ca/wine&words.jpg)
+
+Jupyter Notebook Link for **Description and Points Analyis** is [Description & Points Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/ca-baseline/wine-ca.ipynb "Jupyter notebook").
+
+> ##### Picked unique descriptions. 17 uniques points distribution.
+
+
+![Points distribution](./img/ca/fig_01.png)
+
+
+
+> ##### Trie to find correlation between length of description and points
+* Not enough datasets at higher points. Not linear at higher points?
+
+![Point boxplot](./img/ca/fig_02.png)
+
+
+> ##### Linear regression 
+* Confirmed it is nonlinear at higher points
+
+![Linear regression](./img/ca/fig_03.png)
+
+> ##### Rearrange data into 5 different bins, i.e. 17 diff points --> 5 diff points
+* Score 1 : 689
+* Score 2 : 3084
+* Score 3 : 7154
+* Score 4 : 5203
+* Score 5 : 3888
+
+![Linear regression](./img/ca/fig_04.png)
+
+> ##### Using binned dataset, we can see linearity between description length and points.
+
+![Linear regression](./img/ca/fig_05.png)
+
+> ##### Can we predict "Score" bin using descriptions?  
+
+* Lengh of description is clearly related with points. 
+* But, what if the description is just random words with no meaning?
+* The words or context within description should be another critical factor.
+
+> ##### Prediction of points using description (words in the descriptions)
+
+  1. TfidfVectorizer - Transforms text to feature vectors
+  2. Random Forest - A classification algorithm. 
+  * X: input data [bag of words, i.e. description], 
+  * y: classification [1,2,3,4,5]
+
+> ##### Short demo 
+* [Demo:](https://musing-hugle-674b40.netlify.app) https://musing-hugle-674b40.netlify.app
+* [Github:](https://github.com/moz5691/wine_analysis_flask_react) https://github.com/moz5691/wine_analysis_flask_react
+
+> ##### Findings  
+
+* We can correlate the length of descriptions with points by tasters. 
+* We found its linearity between length of descriptions and points after binning datasets.
+* Using TFIDF and RandomForestClassifier to predict points using 'description' as a bag of words. Accuracy of prediction (0.98) was pretty satisfactory. 
+* It might be interesting to see how the same descriptions are scored as points by the tasters (future work?)
+
+
+-----------
+
+### 2. Wine tasters' points bias analysis.
+
+![icon](./img/cb/wine_tasting.jpg)
+
+Jupyter Notebook Link for **Price Point Analyis** is [Price Point Analysis](https://examples.com "Jupyter notebook").
+
+> TBD
+
+> TBD
+
+---------
+
+### 3. Wine quality with respect to area/region anlaysis
+
+![icon](./img/sc/wine_world_bubble.jpg)
+
+Jupyter Notebook Link for **Price Point Analyis** is [Area/Region Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/geocode_slc/Wine_Geocode.ipynb "Jupyter notebook").
+
+
+> ##### [Wine Points Tricolor](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_tricolor.html "gmap")
+
+> ##### [Wine Points Australia and New Zealand](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_Australia_NZ.html "gmap").
+
+> ##### [Wine Points South Africa](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_SAfrical.html "gmap")
+
+> ##### [Wine Points South America](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_SAmerica.html "gmap")
+
+> ##### [Wine Points United States](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_USA.html "gmap")
+
+> ##### Findings
+
+-----------
+
+### 4. Climate impact to wine quality analysis
+
+![icon](./img/ah/wine_climate.jpg)
+
+Jupyter Notebook Link for **Price Point Analyis** is [Climate Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/APH/WinoAPH_Climate.ipynb "Jupyter notebook").
+
+> ##### Average annual temperature by province (2006 ~ 2015)
+
+![Temparature by Province](./img/ah/fig_APH01.png)
+
+> ##### Average annual precipitation by province (2006 ~ 2015)
+
+![Precipiation by Province](./img/ah/fig_APH02.png)
+
+> ##### Points vs annual temperature (2006 ~ 2015)
+
+![Points vs Temerature](./img/ah/fig_APH03.png)
+
+> ##### Points vs annual precipitation (2006 ~ 2015)
+
+![Points vs Precipitation](./img/ah/fig_APH04.png)
+
+> ##### Findings: TBD
+
+-------
+
+### 5. Price Point Analysis
 
 ![icon](./img/sh/wine_price.jpg)
 
@@ -45,98 +192,3 @@ Jupyter Notebook Link for **Price Point Analyis** is [Price Point Analysis](http
 
 ![Wine_$500_or_less](./img/sh/Wine_$500_or_less.png)
 
------------
-
-### 2. Wine tasters' points bias analysis 
-
-![icon](./img/cb/wine_tasting.jpg)
-
-> TBD
-
-> TBD
-
-------------
-
-### 3. Wine quality with respect to area/region anlaysis 
-
-![icon](./img/sc/wine_world_bubble.jpg)
-
-> [Wine Points Tricolor](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_tricolor.html "gmap")
-
-> [Wine Points Australia and New Zealand](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_Australia_NZ.html "gmap").
-
-> [Wine Points South Africa](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_SAfrical.html "gmap")
-
-> [Wine Points South America](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_SAmerica.html "gmap")
-
-> [Wine Points United States](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_USA.html "gmap")
-
------------
-
-### 4. Climate impact to wine quality analysis
-
-![icon](./img/ah/wine_climate.jpg)
-> TBD
-
-> TBD
-
--------
-
-### 5. Wine description and points analysis.
-![icon](./img/ca/wine&words.jpg)
-
-Jupyter Notebook Link for **Description and Points Analyis** is [Description & Points Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/ca-baseline/wine-ca.ipynb "Jupyter notebook").
-
-> ##### Picked unique descriptions. 17 uniques points distribution.
-
-
-![Points distribution](./img/ca/fig_01.png)
-
-
-> ##### Try to find correlation between length of description and points
-* less correlation at higher points
-
-![Point boxplot](./img/ca/fig_02.png)
-
-
-> ##### Linear regression 
-* similary it is not linear at higher points
-
-![Linear regression](./img/ca/fig_03.png)
-
-> ##### Rearrange data into 5 different bins, i.e. 17 diff points --> 5 diff points
-* Score 1 : 689
-* Score 2 : 3084
-* Score 3 : 7154
-* Score 4 : 5203
-* Score 5 : 3888
-
-![Linear regression](./img/ca/fig_04.png)
-
-> ##### It looks a lot more linear with binned dataset.
-
-![Linear regression](./img/ca/fig_05.png)
-
-> ##### Can we predict "Score" bin using descriptions?  
-
-* Lengh of description is clearly related with points. 
-* But, what if the description is just random words with no meaning?
-* The words or context within description should be another critical factor.
-
-> ##### Prediction of points using description (words in the descriptions)
-
-  1. TfidfVectorizer - Transforms text to feature vectors
-  2. Random Forest - A classification algorithm. 
-  * X: input data [bag of words, i.e. description], 
-  * y: classification [1,2,3,4,5]
-
-> ##### Short demo 
-* Demo [LINK](https://musing-hugle-674b40.netlify.app) https://musing-hugle-674b40.netlify.app
-* Github [LINK](https://github.com/moz5691/wine_analysis_flask_react) https://github.com/moz5691/wine_analysis_flask_react
-
-> ##### Findings  
-
-* We can correlate the length of descriptions with points by testers. 
-* We found its linearity between length of descriptions and points.
-* Using TFIDF and RandomForestClassifier to predict points using 'description' as a bag of words. Accuracy of prediction is pretty satisfactory. 
-* It might be interesting to see how the same descriptions are scored as points by the testers (future work?)
