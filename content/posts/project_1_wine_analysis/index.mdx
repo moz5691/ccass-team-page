@@ -1,5 +1,5 @@
 ---
-title: Wine Analysis
+title: Wine By Numbers
 date: 2020-04-16
 tags:
   - Data Science
@@ -20,7 +20,7 @@ tags:
 * Meteostat API
 
 #### Summary 
-* Evaluate the quality of wines based off score/points given by testers to determine if the tester, region, price, or climate impacted the wine’s score or description provided by the tester
+* Evaluate the quality of wines based off score/points given by tasters to determine if the taster, region, price, or climate impacted the wine’s score or description provided by the taster
 
 #### Questions
 * TBD
@@ -28,18 +28,18 @@ tags:
 
 #### Process
 * Compare the length of the description to the point value
-* Analyze each tester to determine if they have preferred type, region of wine and if that impacts points
+* Analyze each taster to determine if they have preferred type, region of wine and if that impacts points
 * Map average wine score for each province using color to indicate point value
 * Using a 10 year period compare score to temperature and precipitation
 * Using wines price, plot wine and determine correlation and best wines for budget
 
 #### Wine points scale
-* 95-100 Classic: a great wine.
-* 90-94 Outstanding: a wine of superior character and style.
-* 85-89 Very good: a wine with special qualities.
-* 80-84 Good: a solid, well-made wine.
-* 75-79 Mediocre: a drinkable wine that may have minor flaws.
-* 50-74 Not recommended.
+* **95-100** Classic: a great wine.
+* **90-94** Outstanding: a wine of superior character and style.
+* **85-89** Very good: a wine with special qualities.
+* **80-84** Good: a solid, well-made wine.
+* **75-79** Mediocre: a drinkable wine that may have minor flaws.
+* **50-74** Not recommended.
 
 --------
 <br/>
@@ -48,7 +48,7 @@ tags:
 ### 1. Wine description and points analysis.
 ![icon](./img/ca/wine&words.jpg)
 
-Jupyter Notebook Link for **Description and Points Analyis** is [Description & Points Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/ca-baseline/wine-ca.ipynb "Jupyter notebook").
+Jupyter Notebook Link for **Description and Points Analyis** is [HERE](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/ca-baseline/wine-ca.ipynb "Jupyter notebook").
 
 > ##### Picked unique descriptions. 17 uniques points distribution.
 
@@ -116,7 +116,7 @@ Jupyter Notebook Link for **Description and Points Analyis** is [Description & P
 
 ![icon](./img/cb/wine_tasting.jpg)
 
-Jupyter Notebook Link for **Tasters' points bias analysis** is [Price Point Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/winebased/Wine-Bias.ipynb "Jupyter notebook").
+Jupyter Notebook Link for **Tasters' points bias analysis** is [HERE](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/winebased/Wine-Bias.ipynb "Jupyter notebook").
 
 
 > ##### Reviewers Per Country
@@ -159,12 +159,12 @@ Jupyter Notebook Link for **Tasters' points bias analysis** is [Price Point Anal
 
 ![icon](./img/sc/wine_world_bubble.jpg)
 
-Jupyter Notebook Link for **Quality with respect to area/region analysis** is [Area/Region Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/geocode_slc/Wine_Geocode.ipynb "Jupyter notebook").
+Jupyter Notebook Link for **Quality with respect to area/region analysis** is [HERE](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/geocode_slc/Wine_Geocode.ipynb "Jupyter notebook").
 
 ##### Average wine points highlighted within regions consist of the below scale
-* **90-94** Outstanding: a wine of superior character and style. - RED
-* **85-89** Very good: a wine with special qualities. - GREEN
-* **80-84** Good: a solid, well-made wine. - BLUE
+* **90-94** Outstanding: a wine of superior character and style. - <span style="color:red">RED</span>
+* **85-89** Very good: a wine with special qualities. - <span style="color:green">GREEN</span>
+* **80-84** Good: a solid, well-made wine. - <span style="color:blue">BLUE</span>
 
 
 > ##### [Wine Points Global](https://slcassidy.github.io/ccass_graphs//slc_WinePoints_tricolor.html "gmap")
@@ -187,8 +187,8 @@ Jupyter Notebook Link for **Quality with respect to area/region analysis** is [A
 * Largest wine producing area is in Europe as there are a variety of wine makers
 * The areas appearing in green show an average of consistent good wine
 * Wine is not necessarily good based on the region, but based on the wine makers
-  - Do not see clusters of outstanding wine within a region (red) 
-  - Less wine in a location with high point score with no other wineries, example Arkansas wine (red).
+  - Do not see clusters of outstanding wine within a region (<span style="color:red">red</span>) 
+  - Less wine in a location with high point score with no other wineries, example Arkansas wine (<span style="color:red">red</span>).
 
 <br/>
 -----------
@@ -198,33 +198,40 @@ Jupyter Notebook Link for **Quality with respect to area/region analysis** is [A
 
 ![icon](./img/ah/wine_climate.jpg)
 
-Jupyter Notebook Link for **Climate impact analysis** is [Climate Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/APH/WinoAPH_Climate.ipynb "Jupyter notebook").
+Jupyter Notebook Link for **Climate impact analysis** is [HERE](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/APH/WinoAPH_Climate.ipynb "Jupyter notebook").
 
 > ##### Average Annual Temperature for France, US, Italy (2006-2015)
 
 ![Temparature by Province](./img/ah/fig_APH01.png)
-* For the top 3 wine producing countries, the average temperature trend of the 3 countries over the 10 year period do NOT overlap.
+* The average temperature trend of the 3 countries over the 10 year period do NOT overlap.
 * Note that the temperature trend for Italy fluctuates the most year over year.
 
+<br/>
 
 > ##### Average Annual Precipitation for France, US, Italy (2006-2015)
 
 ![Precipiation by Province](./img/ah/fig_APH02.png)
 
-* Like its temperature trend, the precipitation trend for Italy fluctuates the most year over year.
-* Note there's a converse relationship between the precipation trend of US and France over the 10 year period.
+* Similar to its temperature trend, the precipitation trend for Italy fluctuates the most year over year.
+* There's a converse relationship between the precipation trend of US and France over the 10 year period.
+
+<br/>
 
 > ##### Points vs. Annual Temperature (2006-2015)
 
 ![Points vs Temerature](./img/ah/fig_APH03.png)
-* There's a steep negative correlation between points vs. annual average temperature in Italy. The lower the temperature, the higher the points. Note: Tuscany, Piedmont, Veneto were 3 top wine producing regions in Italy.
+* There's a steep negative correlation between points vs. annual average temperature in Italy. The lower the temperature, the higher the points. 
 * There's a slight negative correlation between points vs. annual average temperature for both US and France. Thus per this data set, temperature has little to no affect on quality of wine produced in the regions selected in both US and France between 2006 and 2015.
+
+<br/>
 
 > ##### Points vs. Annual Precipitation (2006-2015)
 
 ![Points vs Precipitation](./img/ah/fig_APH04.png)
 * There's a significant positive correlation between points vs. annual average precipitation in both Italy and US. The higher the precipitation, the higher the points.
 * There's a slight negative correlation between points vs. annual average precipitation for France. Per this data set, neither temperature nor precipitation has little to no affect on quality of wine produced in the regions of France.
+
+<br/>
 
 > ##### Interesting to note that we only saw a strong correlation between climate effects on wine quality in Italy, and not US and France.
 
@@ -237,7 +244,7 @@ Jupyter Notebook Link for **Climate impact analysis** is [Climate Analysis](http
 
 ![icon](./img/sh/wine_price.jpg)
 
-Jupyter Notebook Link for **Price Point Analyis** is [Price Point Analysis](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/Wine%20-%20By%20the%20Numbers%20-%20Price_Point.ipynb "Jupyter notebook").
+Jupyter Notebook Link for **Price Point Analyis** is [HERE](https://nbviewer.jupyter.org/github/halotx3/ccass-wine-ds/blob/master/Wine%20-%20By%20the%20Numbers%20-%20Price_Point.ipynb "Jupyter notebook").
 
 > ##### **120,916 wines** in analysis
 
