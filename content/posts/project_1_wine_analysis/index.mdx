@@ -61,8 +61,9 @@ Jupyter Notebook Link for **Description and Points Analysis** is [HERE](https://
 
 
 
-> ##### Trie to find correlation between length of description and points
-* Not enough datasets at higher points. Does it mean it is not linear at higher points?
+> ##### Tried to find correlation between the length of descriptions and its points
+* Not enough datasets at higher points. 
+* Does it mean it is not linear at higher points?
 
 ![Point boxplot](./img/ca/fig_02.png)
 
@@ -85,18 +86,18 @@ Jupyter Notebook Link for **Description and Points Analysis** is [HERE](https://
 
 ![Linear regression](./img/ca/fig_05.png)
 
-> ##### Can we predict "Score" bin using descriptions?  
+> ##### Can we predict "Score" bin using descriptions only?  
 
 * Lengh of description is clearly related with points. 
 * But, what if the description is just random words with no meaning?
-* The words or context within description should be another critical factor.
+* The words or context within the descriptions should be another critical factor.
 
-> ##### Prediction of points using description (words in the descriptions)
+> ##### Prediction of points using the descriptions (bag of words in the descriptions)
 
   1. TfidfVectorizer - Transforms text to feature vectors
-  2. Random Forest - A classification algorithm. 
-  * X: input data [bag of words, i.e. description], 
-  * y: classification [1,2,3,4,5]
+  2. Random Forest - A classification algorithm 
+  * X: input data [bag of words, i.e. description] 
+  * y: classifications [1,2,3,4,5] -> Scores 1 ~ 5
 
 > ##### Short demo 
 * [Demo:](https://musing-hugle-674b40.netlify.app) https://musing-hugle-674b40.netlify.app
@@ -104,12 +105,11 @@ Jupyter Notebook Link for **Description and Points Analysis** is [HERE](https://
 
 > ##### Findings  
 
-* We can correlate the length of descriptions with points by tasters. 
-* We found its linearity between length of descriptions and points after binning datasets.
+* We can correlate the length of descriptions with its points. 
+* We found its linearity between the length of descriptions and its points after binning datasets.
 * Using TFIDF and RandomForestClassifier to predict points using 'description' as a bag of words. Accuracy of prediction (0.98) was pretty satisfactory. 
 * It might be interesting to see how the same descriptions are scored as points by the tasters (future work?)
 <br/>
-
 
 
 
